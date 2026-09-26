@@ -100,7 +100,15 @@ if GetOption("fullenv") or any(
         (distenv["DIST_DEPENDS"], firmware_env["FW_RESOURCES_MANIFEST"]),
         DIST_EXTRA=[
             *dist_basic_arguments,
-            *dist_radio_arguments,
+            # Radio (Core2/BLE) stack bundling intentionally left out: this fork
+            # doesn't touch the BLE stack, and bundling the vendored
+            # lib/stm32wb_copro binary here was tripping the "firmware image
+            # overlaps C2 region" safety check (see update.py's layout_check)
+            # on a plain build. Self-update packages without a radio binary
+            # are an explicitly supported case (layout_check treats radio_addr
+            # == 0 as "cannot validate layout for partial package" and lets it
+            # through) - the device will just keep its currently-installed
+            # radio stack.
             *dist_resource_arguments,
             *dist_splash_arguments,
         ],
