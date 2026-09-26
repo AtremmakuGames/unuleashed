@@ -1,0 +1,18 @@
+App(
+    appid="basic_services",
+    name="Basic services",
+    apptype=FlipperAppType.METAPACKAGE,
+    provides=[
+        "cli_vcp",
+        "crypto_start",
+        "rpc_start",
+        "gps_start",
+        "network_start",
+        "expansion_start",
+        "bt",
+        "desktop",
+        "loader",
+        "power",
+        "namechanger_srv",
+    ],
+)
