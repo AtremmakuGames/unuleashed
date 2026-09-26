@@ -108,7 +108,17 @@ def _proto_ver_generator(target, source, env):
         git_describe = describe()
 
     if not git_describe:
-        raise StopError("Failed to process git tags for protobuf versioning")
+        # assets/protobuf is vendored directly into this fork's history rather
+        # than kept as its own git checkout with upstream's tags, so "git
+        # describe" here has nothing to find. Fall back to the version tag
+        # (github.com/DarkFlippers/flipperzero-protobuf) that matches the
+        # vendored commit instead of failing the whole build.
+        print(
+            fg.boldyellow(
+                "Git: no tags found for protobuf versioning, using fallback 0.29"
+            )
+        )
+        git_describe = "0.29"
 
     git_major, git_minor = git_describe.split(".")
     version_file_data = (
