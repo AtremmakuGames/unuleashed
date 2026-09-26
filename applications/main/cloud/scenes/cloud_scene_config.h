@@ -1,0 +1,8 @@
+ADD_SCENE(cloud, start, Start)
+ADD_SCENE(cloud, settings, Settings)
+ADD_SCENE(cloud, text_edit, TextEdit)
+ADD_SCENE(cloud, upload_progress, UploadProgress)
+ADD_SCENE(cloud, browse_loading, BrowseLoading)
+ADD_SCENE(cloud, browse_list, BrowseList)
+ADD_SCENE(cloud, download_progress, DownloadProgress)
+ADD_SCENE(cloud, about, About)

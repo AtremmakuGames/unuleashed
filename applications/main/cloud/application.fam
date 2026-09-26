@@ -1,0 +1,13 @@
+App(
+    appid="cloud",
+    name="Cloud",
+    apptype=FlipperAppType.MENUEXTERNAL,
+    entry_point="cloud_app",
+    stack_size=3 * 1024,
+    icon="I_Cloud_14x14",
+    order=90,
+    fap_libs=["assets"],
+    fap_icon="icon.png",
+    fap_category="Tools",
+    fap_description="Upload and download files over Wi-Fi (via the ESP32 Wi-Fi Devboard) to/from a public file database (filebin.net).",
+)
